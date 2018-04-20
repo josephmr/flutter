@@ -32,8 +32,10 @@ class ValidatorTask {
   final Future<ValidationResult> result;
 }
 
-class Doctor {
+class DoctorValidatorsProvider {
   List<DoctorValidator> _validators;
+
+  static DoctorValidatorsProvider get instance => context[DoctorValidatorsProvider];
 
   List<DoctorValidator> get validators {
     if (_validators == null) {
@@ -59,6 +61,12 @@ class Doctor {
         _validators.add(new DeviceValidator());
     }
     return _validators;
+  }
+}
+
+class Doctor {
+  List<DoctorValidator> get validators {
+    return DoctorValidatorsProvider.instance.validators;
   }
 
   /// Return a list of [ValidatorTask] objects and starts validation on all

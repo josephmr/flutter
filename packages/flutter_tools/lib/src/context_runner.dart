@@ -56,6 +56,7 @@ Future<T> runInContext<T>(
       DevFSConfig: () => new DevFSConfig(),
       DeviceManager: () => new DeviceManager(),
       Doctor: () => new Doctor(),
+      DoctorValidatorsProvider: () => new DoctorValidatorsProvider(),
       Flags: () => const EmptyFlags(),
       FlutterVersion: () => new FlutterVersion(const Clock()),
       GenSnapshot: () => const GenSnapshot(),
